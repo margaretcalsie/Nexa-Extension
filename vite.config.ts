@@ -9,9 +9,15 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: 'index.html',
+        background: 'src/background.ts',
       },
       output: {
-        entryFileNames: 'assets/popup.js',
+        entryFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'background') {
+            return 'assets/background.js'
+          }
+          return 'assets/popup.js'
+        },
         chunkFileNames: 'assets/[name].js',
         assetFileNames: 'assets/[name].[ext]',
       },

@@ -2,10 +2,14 @@
   "manifest_version": 3,
   "name": "Note Taker",
   "version": "1.0.0",
-  "description": "A simple note-taking Chrome extension.",
+  "description": "A note-taking Chrome extension with AI-powered summarization.",
   "action": {
     "default_popup": "index.html",
     "default_title": "Note Taker"
+  },
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
   },
   "permissions": ["storage"]
 }
